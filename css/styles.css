@@ -337,7 +337,7 @@ button {
 }
 .mobile-menu-container {
   position: relative;
-  padding-top: 24px;
+  padding-top: 74px;
   padding-bottom: 40px;
   display: flex;
   flex-direction: column;
@@ -854,7 +854,7 @@ h1.header-one {
 
 .page-footer {
   background-color: #2e2f42;
-  padding: 100px 0;
+  padding: 96px 0;
 }
 
 /* контейнер футера на мобилке — всё в колонку и по центру */
@@ -1053,6 +1053,9 @@ h1.header-one {
     justify-content: space-between;
     align-items: baseline;
     gap: 0; /* на десктопе расстояния даём через gap внутри блоков */
+  }
+  .page-footer {
+    padding: 100px 0; /* desktop */
   }
 
   /* слева: блок с лого+текстом и соцсетями в одну линию, с большим промежутком */
