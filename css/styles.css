@@ -143,11 +143,6 @@ button {
   border: 1px solid rgba(46, 47, 66, 0.1);
   background-color: #e7e9fc;
 }
-.mobile-menu {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
 
 .mobile-menu.is-open {
   opacity: 1;
@@ -866,14 +861,6 @@ h1.header-one {
   gap: 72px; /* расстояние между 3 блоками: logo/text, social, subscribe */
 }
 
-/* левый блок (logo/text + social) тоже в колонку на мобилке */
-.footer-left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 72px;
-}
-
 /* logo */
 .footer-logo {
   display: inline-block;
@@ -1021,12 +1008,6 @@ h1.header-one {
 
     text-align: left;
     gap: 72px 24px; /* row-gap / column-gap */
-  }
-
-  .footer-left {
-    flex-direction: row;
-    align-items: baseline;
-    gap: 24px; /* между logo/text и social */
   }
 
   .footer-subscribe {
@@ -1379,5 +1360,18 @@ h1.header-one {
 @media (min-width: 1158px) {
   .container-team {
     max-width: 1158px;
+  }
+}
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-info {
+    align-items: flex-start;
+    text-align: left;
   }
 }
