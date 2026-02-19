@@ -874,6 +874,7 @@ h1.header-one {
   color: #f4f4fd;
   line-height: 1.5;
   letter-spacing: 0.02em;
+  text-align: left;
 }
 
 /* Social */
@@ -958,7 +959,7 @@ h1.header-one {
 .footer-subscribe-input::placeholder {
   color: #ffffff;
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 2;
   letter-spacing: 0.04em;
 }
 
