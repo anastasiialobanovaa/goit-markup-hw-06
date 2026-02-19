@@ -466,7 +466,7 @@ h1.header-one {
   .section-one {
     background-image:
       linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-      url("../images/hero-desktop@2x.jpg");
+      url("../images/people-office-1@2x.jpg");
   }
 }
 
@@ -970,6 +970,9 @@ h1.header-one {
 
 .footer-subscribe-input::placeholder {
   color: #ffffff;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
 }
 
 .footer-subscribe-btn {
