@@ -1,5 +1,3 @@
-/* font-family: "Roboto", sans-serif; */
-/* font-family: "Raleway", sans-serif; */
 * {
   box-sizing: border-box;
 }
@@ -26,7 +24,6 @@ body {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-
 h1,
 h2,
 h3,
@@ -52,23 +49,32 @@ ul {
 a {
   text-decoration: none;
 }
-h3 {
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  color: #2e2f42;
+/* header */
+button {
+  cursor: pointer;
 }
-p {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #434455;
+.features-icon-box {
+  display: none;
 }
-.header-logo {
-  padding: 24px 0;
+.container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+.page-header {
+  box-shadow:
+    0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 1px 6px rgba(46, 47, 66, 0.08);
+  border-bottom: 1px solid #e7e9fc;
+}
+.nav-list,
+.contacts {
+  display: none;
+
+  font-style: normal;
+}
+
 .logo {
   font-weight: 700;
   font-size: 18px;
@@ -78,77 +84,332 @@ p {
   color: #4d5ae5;
   font-family: "Raleway", sans-serif;
 }
-.logo-part {
-  color: #2e2f42;
-}
-.nav-link {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #2e2f42;
+.header-logo {
+  padding: 16px 0;
   display: block;
-  padding: 24px 0;
 }
-.contacts {
-  font-style: normal;
+.header-logo .logo-part {
+  color: #2e2f42;
 }
-.contacts-link {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
+.burger-btn {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+.burger-icon {
+  display: block;
+  fill: #2f2f37;
+}
+
+.menu-contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.menu-contacts-link {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
   letter-spacing: 0.02em;
   color: #434455;
   display: block;
-  padding: 24px 0;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.nav-link:hover,
-.nav-link:focus,
-.contacts-link:hover,
-.contacts-link:focus {
-  color: #404bbf;
+.menu-contacts-link:hover,
+.menu-contacts-link:focus {
+  color: inherit;
 }
-.page-footer {
-  background-color: #2e2f42;
+.menu-contacts-link:focus {
+  outline: 2px solid rgba(77, 90, 229, 0.4);
+  outline-offset: 4px;
 }
-.p-footer {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #f4f4fd;
-}
-.footer-logo .logo-part-footer {
-  color: #f4f4fd;
+.mobile-menu address {
+  font-style: normal;
 }
 
-.section-one {
-  background-color: #2e2f42;
-  padding: 188px 0;
+.mobile-menu-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  width: 24px;
+  height: 24px;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: 1px solid rgba(46, 47, 66, 0.1);
+  background-color: #e7e9fc;
 }
-.header-one {
+.mobile-menu {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+@media (min-width: 768px) {
+  .burger-btn {
+    display: none;
+  }
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  .header-logo {
+    padding: 24px 0;
+    margin-right: 120px;
+  }
+  .contacts {
+    display: block;
+  }
+  .nav {
+    display: flex;
+  }
+  .nav-link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #2e2f42;
+    display: block;
+    padding: 24px 0;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-link.current {
+    position: relative;
+  }
+
+  .nav-link.current::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #404bbf;
+  }
+  .nav-link:hover,
+  .nav-link:focus,
+  .contacts-link:hover,
+  .contacts-link:focus {
+    color: #404bbf;
+  }
+  .contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .contacts-link {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: #434455;
+    display: block;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+@media screen and (min-width: 1158px) {
+  .header-logo {
+    margin-right: 76px;
+  }
+  .contacts-list {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+  }
+  .contacts-link {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #434455;
+
+    padding: 24px 0;
+  }
+}
+/* TEST */
+.mobile-menu-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px; /* расстояние между контактами и иконками */
+}
+
+.menu-box-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.menu-icon-link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #4d5ae5;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-item-menu {
+  fill: #f4f4fd;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-icon-link:hover,
+.menu-icon-link:focus {
+  background-color: #404bbf;
+}
+
+.menu-icon-case {
+  width: 40px;
+  height: 40px;
+}
+/* MOBILE MENU */
+.mobile-menu-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 48px;
+}
+
+/* hover / focus — НЕ меняем цвет, но даём интерактивность */
+.mobile-nav-link {
   font-weight: 700;
-  font-size: 56px;
-  line-height: 1.07;
+  font-size: 36px;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
+
+  color: #2e2f42; /* тёмный по умолчанию */
+  text-decoration: none; /* убираем любые линии */
+  display: block; /* чтобы зона клика была норм */
+}
+
+.mobile-nav-link.current {
+  color: #4d5ae5; /* активная страница */
+}
+
+.mobile-nav-link:focus {
+  outline: 2px solid rgba(77, 90, 229, 0.4);
+  outline-offset: 4px;
+}
+.menu-contacts-link[href^="tel:"] {
+  color: #4d5ae5;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.mobile-menu-container {
+  position: relative;
+  padding-top: 24px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.mobile-menu-nav {
+  margin-bottom: auto;
+}
+.mobile-menu-nav ul,
+.menu-contacts-list {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* ===== SECTION ONE (Hero) — MOBILE FIRST ===== */
+
+.section-one {
+  max-width: 320px; /* D3 */
+  margin: 0 auto;
+  padding: 72px 0;
+  background-color: #2e2f42;
+
+  background-image:
+    linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+    url("../images/hero-mobile.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.header-one {
+  max-width: 216px; /* как в Figma */
+  margin: 0 auto 72px;
+
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11;
   letter-spacing: 0.02em;
   text-align: center;
   color: #fff;
 }
+
+/* чтобы твой глобальный h1 { margin-bottom: 48px; } не мешал */
+h1.header-one {
+  margin-bottom: 72px;
+}
+
 .button-section-one {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
-  background: #4d5ae5;
+  display: block;
+  min-width: 169px;
+  height: 56px;
+  margin: 0 auto;
+
+  border: none;
+  border-radius: 4px;
+  background-color: #4d5ae5;
+  color: #fff;
+
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
-  color: #fff;
+
   cursor: pointer;
-  padding: 16px 32px;
-  border-radius: 4px;
-  border: none;
-  /* часто ще потрібно */
-  outline: none;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -156,9 +417,211 @@ p {
 .button-section-one:focus {
   background-color: #404bbf;
 }
+
+/* ===== HERO — MOBILE RETINA (x2) ===== */
+@media (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .section-one {
+    background-image:
+      linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+      url("../images/hero-mobile@2x.jpg");
+  }
+}
+
+/* ===== HERO — TABLET (768) ===== */
+@media (min-width: 768px) {
+  .section-one {
+    max-width: 768px; /* D3 */
+    padding: 112px 0;
+
+    background-image:
+      linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+      url("../images/hero-tablet.jpg");
+  }
+
+  .header-one {
+    max-width: 496px;
+    margin-bottom: 36px;
+
+    font-size: 56px;
+    line-height: 1.07;
+  }
+
+  h1.header-one {
+    margin-bottom: 36px;
+  }
+}
+/* TABLET RETINA */
+@media (min-width: 768px) and (min-resolution: 192dpi),
+  (min-width: 768px) and (min-resolution: 2dppx) {
+  .section-one {
+    background-image:
+      linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+      url("../images/hero-tablet@2x.jpg");
+  }
+}
+
+/* DESKTOP RETINA */
+@media (min-width: 1158px) and (min-resolution: 192dpi),
+  (min-width: 1158px) and (min-resolution: 2dppx) {
+  .section-one {
+    background-image:
+      linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+      url("../images/hero-desktop@2x.jpg");
+  }
+}
+
+/* ===== HERO — DESKTOP (1158+) ===== */
+@media (min-width: 1158px) {
+  .section-one {
+    max-width: 1440px; /* D3 */
+    padding: 188px 0;
+
+    /* x1 для десктопа — пока используем Dark-bg.jpg, потому что hero-desktop.jpg у тебя не вижу */
+    background-image:
+      linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+      url("../images/people-office-1.jpg");
+  }
+
+  .header-one {
+    margin-bottom: 48px;
+  }
+
+  h1.header-one {
+    margin-bottom: 48px;
+  }
+}
+
+/* SECTION TWO (Features) — MOBILE FIRST */
+.section-two {
+  padding: 96px 0;
+}
+
+.list-section-two {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+/* скрываем svg-блоки */
+.section-two .features-icon-box {
+  display: none;
+}
+
+/* h3 у тебя: class="header-three sec-two" */
+.header-three.sec-two {
+  margin-bottom: 8px;
+
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
+
+  text-align: center;
+}
+
+/* описание под заголовком */
+.list-section-two p {
+  font-weight: 500; /* на мобилке чаще так по макету */
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+/* mobile */
+.container {
+  max-width: 320px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+/* tablet */
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+  /* список в 2 колонки */
+  .list-section-two {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 72px 24px; /* row-gap column-gap */
+  }
+
+  /* ширина карточки = 2 в ряд */
+  .list-section-two > li {
+    width: calc((100% - 24px) / 2);
+  }
+
+  /* заголовки меньше чем на мобилке */
+  .header-three.sec-two {
+    font-size: 36px;
+    text-align: left;
+  }
+
+  /* текст легче */
+  .list-section-two p {
+    font-weight: 500;
+  }
+}
+
+/* desktop */
+@media (min-width: 1158px) {
+  .container {
+    max-width: 1158px;
+    padding: 0 15px;
+  }
+  /* ===== Section Two (Features) — DESKTOP ===== */
+
+  .section-two {
+    padding: 120px 0; /* на десктопе в шаблоне так */
+  }
+
+  .list-section-two {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 24px;
+  }
+
+  .list-section-two > li {
+    width: calc((100% - 72px) / 4); /* 4 items + 3 gaps*24 */
+  }
+
+  /* показываем иконки на desktop */
+  .section-two .features-icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 112px;
+    margin-bottom: 8px;
+
+    background-color: #f4f4fd;
+    border: 1px solid #8e8f99;
+    border-radius: 4px;
+  }
+
+  .features-icon {
+    fill: #2e2f42;
+  }
+
+  /* заголовки на десктопе меньше, чем на мобилке */
+  .header-three.sec-two {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  /* обычный вес текста */
+  .list-section-two p {
+    font-weight: 400;
+  }
+}
+/* ===== SECTION THREE (Our Team) — MOBILE FIRST ===== */
+
 .section-three {
   background-color: #f4f4fd;
+  padding: 96px 0; /* mobile */
 }
+
 .section-title {
   font-weight: 700;
   font-size: 36px;
@@ -166,16 +629,34 @@ p {
   letter-spacing: 0.02em;
   text-align: center;
   color: #2e2f42;
+
   margin-bottom: 72px;
+}
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 72px; /* на мобилке карточки вертикально с большим отступом */
 }
 
 .list-item-sec-three {
   background-color: #fff;
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
+
   box-shadow:
     0 2px 1px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16),
     0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
+
+.text-team {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 32px 16px;
+}
+
 .name {
   font-weight: 500;
   font-size: 20px;
@@ -184,6 +665,7 @@ p {
   text-align: center;
   color: #2e2f42;
 }
+
 .position {
   font-weight: 400;
   font-size: 16px;
@@ -193,184 +675,12 @@ p {
   color: #434455;
 }
 
-/* .container { 
-  max-width; 
-  padding-left;  
-  padding-right;  
-  margin-left;  
-  margin-right;  
-} */
-
-/* homework 3 */
-
-.container-header {
-  display: flex;
-  align-items: center; /* по центру по высоте */
-  justify-content: space-between; /* nav слева, contacts справа */
-}
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 76px; /* расстояние logo -> menu (как в макете) */
-}
-.nav-list {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.contacts {
-  font-style: normal; /* address по умолчанию курсив */
-}
-
-.contacts-list {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.list-section-two {
-  display: flex;
-  gap: 24px;
-}
-.list-section-two > li {
-  width: calc((100% - 72px) / 4);
-}
-.sec-two {
-  margin-bottom: 8px;
-}
-.team-list {
-  display: flex;
-  gap: 24px;
-}
-.team-list > li {
-  width: calc((100% - 72px) / 4);
-}
-
-.text-team {
-  display: flex;
-  flex-direction: column;
-  padding: 32px 16px 32px 16px;
-  gap: 8px;
-}
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 48px 24px; /* вертикальний 48, горизонтальний 24 (часто так) */
-}
-.text-portfolio {
-  padding: 32px 16px 32px 16px;
-  border-bottom: 1px solid #e7e9fc;
-  border-left: 1px solid #e7e9fc;
-  border-right: 1px solid #e7e9fc;
-}
-
-.container {
-  max-width: 1158px; /* ширина из макета */
-  margin: 0 auto; /* центрирует по горизонтали */
-  padding: 0 15px; /* чтобы контент не прилипал к краям */
-}
-.section {
-  padding: 120px 0;
-}
-.page-header {
-  box-shadow:
-    0px 2px 1px rgba(46, 47, 66, 0.08),
-    0px 1px 1px rgba(46, 47, 66, 0.16),
-    0px 1px 6px rgba(46, 47, 66, 0.08);
-  border-bottom: 1px solid #e7e9fc;
-}
-.section-one .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* вот это центрирует кнопку и заголовок */
-}
-.section-one {
-  max-width: 1440px;
-  margin: 0 auto;
-
-  background-image:
-    linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-    url("../images/people-office-1.jpg");
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: #2e2f42; /* на случай если картинка не загрузится */
-}
-
-.header-one {
-  max-width: 496px;
-}
-.header-logo {
-  display: block;
-  padding: 24px 0;
-}
-.page-footer {
-  background-color: #2e2f42;
-  padding: 100px 0;
-}
-.p-footer {
-  max-width: 264px;
-  margin-top: 16px;
-}
-.list-item-sec-three {
-  border-radius: 0 0 4px 4px;
-  overflow: hidden; /* щоб фото/фон не вилізали за радіус */
-}
-.portfolio-card {
-  width: calc((100% - 48px) / 3); /* 2 gaps по 24 = 48 */
-}
-.features-icon-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  height: 112px;
-  margin-bottom: 8px;
-
-  background-color: #f4f4fd;
-  border: 1px solid #8e8f99;
-  border-radius: 4px;
-}
-
-.features-icon {
-  fill: #2e2f42;
-}
+/* social icons */
 .our-team-box-icon {
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: row;
   gap: 24px;
-}
-.our-team-icon-link {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: #4d5ae5;
-}
-
-.our-team-icon-link {
-  background-color: #4d5ae5;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.our-team-icon {
-  fill: #f4f4fd;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.our-team-icon-link:hover,
-.our-team-icon-link:focus {
-  background-color: #404bbf;
+  margin-top: 8px;
 }
 
 .our-team-icon-case {
@@ -378,70 +688,91 @@ p {
   height: 40px;
 }
 
-.footer-social-title {
-  margin-bottom: 16px;
-  font-weight: 500;
-  color: #ffffff;
-}
-
-.footer-social-icon {
-  fill: #f4f4fd;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.footer-social-item {
-  width: 40px;
-  height: 40px;
-}
-
-.footer-social-link:hover,
-.footer-social-link:focus {
-  background-color: #31d0aa;
-}
-
-/* НЕАКТИВНОЕ состояние */
-.footer-social-link {
-  width: 40px;
-  height: 40px;
+.our-team-icon-link {
+  width: 100%;
+  height: 100%;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
   border-radius: 50%;
-  background-color: #4d5ae5; /* чистый пурпур */
+  background-color: #4d5ae5;
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.footer-social-list {
-  display: flex;
-  gap: 16px;
+
+.our-team-icon {
+  fill: #f4f4fd;
 }
 
-.nav-link {
-  position: relative;
-  display: inline-block;
-  padding: 24px 0;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.nav-link.current {
-  color: #404bbf;
-}
-
-.nav-link.current::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-
-  width: 100%;
-  height: 4px;
-  border-radius: 2px;
+.our-team-icon-link:hover,
+.our-team-icon-link:focus {
   background-color: #404bbf;
 }
-/* overlay */
+.list-item-sec-three img {
+  width: 100%;
+}
+/* ===== Our Team — TABLET ===== */
+@media (min-width: 768px) {
+  .team-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 64px 24px; /* row-gap / column-gap как в макете */
+    justify-content: center;
+  }
+
+  .team-list > .list-item-sec-three {
+    width: 264px; /* в Figma карточка 264px */
+  }
+}
+/* ===== Our Team — DESKTOP ===== */
+@media (min-width: 1158px) {
+  .section-three {
+    padding: 120px 0;
+  }
+
+  .team-list {
+    flex-wrap: nowrap;
+    gap: 24px;
+    justify-content: space-between;
+  }
+
+  .team-list > .list-item-sec-three {
+    width: calc((100% - 72px) / 4);
+  }
+}
+/* ===== SECTION FOUR (Our Portfolio) — MOBILE FIRST ===== */
+
+.section-four {
+  padding: 96px 0;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.portfolio-card {
+  background-color: #fff;
+  box-shadow:
+    0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 1px 6px 0 rgba(46, 47, 66, 0.08);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-thumb img {
+  width: 100%;
+}
+
+/* D1: overlay должен быть на всех ширинах (просто скрыт до hover/focus) */
 .portfolio-overlay {
   position: absolute;
   top: 0;
@@ -450,336 +781,176 @@ p {
   width: 100%;
   height: 100%;
 
+  padding: 40px 32px;
+
   background-color: #4d5ae5;
+  color: #f4f4fd;
 
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* D2: hover/focus на всех ширинах */
+.portfolio-card:hover,
+.portfolio-card:focus-within {
+  box-shadow: 0 4px 20px 0 rgba(46, 47, 66, 0.14);
+}
+
 .portfolio-card:hover .portfolio-overlay,
 .portfolio-card:focus-within .portfolio-overlay {
   transform: translateY(0);
 }
 
-.portfolio-thumb {
-  position: relative;
-  overflow: hidden;
-}
-.portfolio-overlay p {
-  color: #f4f4fd;
-  padding: 40px 32px;
-}
-.portfolio-card {
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.text-portfolio {
+  padding: 32px 16px;
+  border: 1px solid #e7e9fc;
+  border-top: none;
 }
 
-.portfolio-card:hover,
-.portfolio-card:focus-within {
-  box-shadow:
-    0px 1px 6px rgba(46, 47, 66, 0.08),
-    0px 1px 1px rgba(46, 47, 66, 0.16),
-    0px 2px 1px rgba(46, 47, 66, 0.08);
-}
-/* window */
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* rgba() */
-
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-/* double check ".is-open" */
-.backdrop.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-.modal-close-button {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-
-  width: 24px;
-  height: 24px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-  background-color: #e7e9fc;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-
-  transition:
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* padding and cursor to lose standarts styles of Safari */
-
-  padding: 0;
-  cursor: pointer;
-}
-.modal-close-icon {
-  fill: #2e2f42;
-
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal-close-button:hover,
-.modal-close-button:focus {
-  background-color: #404bbf;
-  border: none;
-}
-
-.modal-close-button:hover .modal-close-icon,
-.modal-close-button:focus .modal-close-icon {
-  fill: #ffffff;
-}
-
-.modal-close-button:active {
-  background-color: #404bbf;
-}
-.modal-textarea {
-  resize: none;
-}
-/* ===== MODAL FORM ===== */
-
-.modal-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.modal-field {
-  margin-bottom: 8px; /* расстояние между полями */
-}
-
-.modal-field.modal-field-comment {
-  margin-bottom: 16px; /* comment обычно чуть дальше от checkbox */
-}
-
-.modal-label {
-  display: block;
-  margin-bottom: 4px;
-
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-  color: #8e8f99;
-}
-
-.modal-input-wrap {
-  position: relative; /* нужно будет завтра для иконки внутри */
-}
-
-/* INPUTS */
-.modal-input {
-  width: 100%;
-  height: 40px; /* по макету */
-
-  border: 1px solid rgba(46, 47, 66, 0.4);
-  border-radius: 4px;
-  background-color: transparent;
-
-  padding-left: 16px; /* пока без иконки */
-  padding-right: 16px;
-
-  outline: transparent;
-
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* TEXTAREA */
-.modal-textarea {
-  width: 100%;
-  height: 120px;
-
-  border: 1px solid rgba(46, 47, 66, 0.4);
-  border-radius: 4px;
-  background-color: transparent;
-
-  padding: 8px 16px;
-
-  outline: transparent;
-  resize: none; /* у тебя уже есть, но пусть будет здесь логически */
-
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal-textarea::placeholder {
-  color: rgba(46, 47, 66, 0.4);
-}
-
-/* FOCUS (D3): рамка меняет цвет */
-.modal-input:focus,
-.modal-textarea:focus {
-  border-color: #4d5ae5;
-}
-.modal {
-  position: relative;
-
-  width: 408px;
-  min-height: 584px;
-
-  padding: 72px 24px 24px;
-
-  background-color: #fcfcfc;
-
-  border-radius: 4px;
-
-  box-shadow:
-    0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-}
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  background-color: rgba(46, 47, 66, 0.4);
-
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* когда открыт */
-.backdrop.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-.modal-submit-btn {
-  display: block;
-  min-width: 169px;
-  height: 56px;
-  margin: 0 auto;
-
-  border: none;
-  border-radius: 4px;
-
-  background-color: #4d5ae5;
-  color: #ffffff;
+.text-portfolio h3 {
+  margin-bottom: 8px;
 
   font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-
-  cursor: pointer;
-
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal-submit-btn:hover,
-.modal-submit-btn:focus {
-  background-color: #404bbf;
-}
-.modal-checkbox-wrap {
-  margin-bottom: 24px;
-}
-.modal-title {
-  margin-bottom: 16px;
-
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  text-align: center;
+  font-size: 20px;
+  line-height: 1.2;
   letter-spacing: 0.02em;
-
   color: #2e2f42;
 }
 
-.modal-checkbox-label {
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-  color: #8e8f99;
+.text-portfolio p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #434455;
+}
+@media (min-width: 768px) {
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 72px 24px;
+  }
+
+  .cards > .portfolio-card {
+    width: calc((100% - 24px) / 2);
+  }
+}
+@media (min-width: 1158px) {
+  .section-four {
+    padding: 120px 0;
+  }
+
+  .cards {
+    gap: 48px 24px;
+  }
+
+  .cards > .portfolio-card {
+    width: calc((100% - 48px) / 3);
+  }
+}
+/* =========================
+   FOOTER — MOBILE FIRST
+   ========================= */
+
+.page-footer {
+  background-color: #2e2f42;
+  padding: 100px 0;
 }
 
-/* квадратик */
-.modal-custom-checkbox {
-  display: inline-flex;
+/* контейнер футера на мобилке — всё в колонку и по центру */
+.container-footer {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-
-  width: 16px;
-  height: 16px;
-  margin-right: 8px;
-
-  border-radius: 2px;
-  border: 1px solid rgba(46, 47, 66, 0.4);
-
-  transition:
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  gap: 72px; /* расстояние между 3 блоками: logo/text, social, subscribe */
 }
 
-/* галочка будет видна только когда checked (через fill) */
-.modal-checkbox:checked + .modal-checkbox-label .modal-custom-checkbox {
-  background-color: #404bbf;
-  border: none;
-  fill: #f4f4fd;
+/* левый блок (logo/text + social) тоже в колонку на мобилке */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 72px;
 }
 
-.privacy-link {
-  color: #4d5ae5;
-  text-decoration: underline;
-}
-
-/* чтобы первый блок (лого+текст) не растягивался */
+/* logo */
 .footer-logo {
   display: inline-block;
   margin-bottom: 16px;
 }
 
+/* текст под лого */
 .p-footer {
-  margin-top: 0; /* у тебя было margin-top:16px; но лучше держать через logo margin */
   max-width: 264px;
+  margin: 0; /* чтобы не было лишних дефолтных отступов */
   color: #f4f4fd;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
 }
 
-/* SOCIAL */
+/* Social */
 .footer-social-title,
 .footer-subscribe-title {
   margin-bottom: 16px;
-
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-
   color: #ffffff;
 }
 
-/* ===== SUBSCRIBE FORM ===== */
-.footer-subscribe-form {
+.footer-social-list {
   display: flex;
-  gap: 24px;
+  justify-content: center;
+  gap: 16px;
+}
+
+.footer-social-item {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-social-link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background-color: #4d5ae5;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus {
+  background-color: #31d0aa;
+}
+
+.footer-social-icon {
+  fill: #f4f4fd;
+}
+
+/* Subscribe */
+.footer-subscribe {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-subscribe-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* на мобилке кнопка под инпутом */
+  align-items: center;
+  gap: 16px;
 }
 
 .footer-subscribe-input {
-  width: 264px;
+  width: 288px; /* 320 - 16 - 16 */
   height: 40px;
 
   padding-left: 16px;
@@ -794,19 +965,11 @@ p {
   line-height: 1.5;
   letter-spacing: 0.04em;
 
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-
   outline: transparent;
-
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-subscribe-input::placeholder {
   color: #ffffff;
-}
-
-.footer-subscribe-input:focus {
-  border-color: #31d0aa;
 }
 
 .footer-subscribe-btn {
@@ -844,13 +1007,238 @@ p {
 .footer-subscribe-icon {
   fill: #ffffff;
 }
-/* test */
-/* чтобы в инпуте было место под иконку */
-.modal-input {
-  padding-left: 38px; /* было 16px — увеличиваем под иконку */
+@media (min-width: 768px) {
+  /* D4: контейнер футера особой ширины */
+  .container-footer {
+    max-width: 584px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: flex-start;
+
+    text-align: left;
+    gap: 72px 24px; /* row-gap / column-gap */
+  }
+
+  .footer-left {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 24px; /* между logo/text и social */
+  }
+
+  .footer-subscribe {
+    align-items: flex-start;
+  }
+
+  .footer-subscribe-form {
+    flex-direction: row; /* инпут и кнопка в ряд */
+    align-items: center;
+    gap: 24px;
+  }
+
+  .footer-subscribe-input {
+    width: 264px;
+  }
+
+  .footer-social-list {
+    justify-content: flex-start;
+  }
+}
+/* ===== FOOTER — DESKTOP (1158+) ===== */
+@media (min-width: 1158px) {
+  /* возвращаем контейнер футера к ширине desktop (после tablet 584px) */
+  .container-footer {
+    max-width: 1158px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0; /* на десктопе расстояния даём через gap внутри блоков */
+  }
+
+  /* слева: блок с лого+текстом и соцсетями в одну линию, с большим промежутком */
+  .footer-left {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 120px; /* как в классическом макете */
+  }
+
+  /* social — по умолчанию уже ок, просто подстрахуем */
+  .footer-social {
+    align-items: flex-start;
+  }
+
+  /* subscribe справа */
+  .footer-subscribe {
+    width: auto;
+    align-items: flex-start;
+  }
+
+  .footer-subscribe-form {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .footer-subscribe-input {
+    width: 264px;
+  }
+}
+/* ===== MODAL — MOBILE FIRST ===== */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(46, 47, 66, 0.4);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* сама иконка внутри поля */
+.backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* MOBILE modal box (как в макете для 320px) */
+.modal {
+  position: relative;
+
+  width: 288px; /* 320 - 16 - 16 */
+  min-height: 623px; /* mobile отличается от tablet/desktop */
+
+  padding: 72px 16px 24px;
+
+  background-color: #fff; /* на мобилке в фигме белая */
+  border-radius: 4px;
+
+  box-shadow:
+    0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* tablet + desktop одинаковые */
+@media (min-width: 768px) {
+  .modal {
+    width: 408px;
+    min-height: 584px;
+    padding: 72px 24px 24px;
+    background-color: #fcfcfc; /* как в твоём draft */
+  }
+}
+/* ===== MODAL CONTENT (form) — MOBILE FIRST ===== */
+
+.modal-close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  width: 24px;
+  height: 24px;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #e7e9fc;
+
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close-button:hover,
+.modal-close-button:focus {
+  background-color: #404bbf;
+  border: none;
+}
+
+.modal-close-icon {
+  fill: #2e2f42;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close-button:hover .modal-close-icon,
+.modal-close-button:focus .modal-close-icon {
+  fill: #ffffff;
+}
+
+.modal-title {
+  margin-bottom: 16px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: #2e2f42;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-field {
+  margin-bottom: 8px;
+}
+
+.modal-field-comment {
+  margin-bottom: 16px;
+}
+
+.modal-label {
+  display: block;
+  margin-bottom: 4px;
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+
+  color: #8e8f99;
+}
+
+.modal-input-wrap {
+  position: relative;
+}
+
+.modal-input {
+  width: 100%;
+  height: 40px;
+
+  padding-left: 38px;
+  padding-right: 16px;
+
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+
+  background-color: transparent;
+  outline: transparent;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-input:focus {
+  border-color: #4d5ae5;
+}
+
 .modal-input-icon {
   position: absolute;
   left: 16px;
@@ -858,42 +1246,135 @@ p {
   transform: translateY(-50%);
 
   fill: #2e2f42;
-  pointer-events: none;
 
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* D3: на фокусе меняется цвет рамки и иконки */
 .modal-input:focus + .modal-input-icon {
   fill: #4d5ae5;
 }
-.modal-checkbox:checked + .modal-checkbox-label .modal-custom-checkbox {
-  background-color: #4d5ae5;
+
+.modal-textarea {
+  width: 100%;
+  height: 120px;
+
+  padding: 8px 16px;
+
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+
+  resize: none;
+  outline: transparent;
+  background-color: transparent;
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-textarea:focus {
   border-color: #4d5ae5;
 }
 
+.modal-textarea::placeholder {
+  color: rgba(46, 47, 66, 0.4);
+}
+
+.modal-checkbox-wrap {
+  margin-bottom: 24px;
+}
+
+.modal-checkbox-label {
+  display: flex;
+  align-items: flex-start; /* чтобы верх текста ровнялся с квадратиком */
+  gap: 8px;
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+
+  color: #8e8f99;
+}
+/* квадратик НЕ должен сжиматься */
+.modal-custom-checkbox {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 2px;
+
+  fill: transparent;
+
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-checkbox:checked + .modal-checkbox-label .modal-custom-checkbox {
+  background-color: #404bbf;
+  border: none;
+  fill: #f4f4fd;
+}
+
+.privacy-link {
+  color: #4d5ae5;
+  text-decoration: underline;
+}
+
+.modal-submit-btn {
+  min-width: 169px;
+  height: 56px;
+  margin: 0 auto;
+
+  border: none;
+  border-radius: 4px;
+
+  background-color: #4d5ae5;
+  color: #ffffff;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-submit-btn:hover,
+.modal-submit-btn:focus {
+  background-color: #404bbf;
+}
+.modal-input-icon-user {
+  width: 12px;
+  height: 12px;
+}
+/* галочка скрыта по умолчанию */
+.modal-checkbox-icon {
+  opacity: 0;
+}
+
+/* показываем галочку только когда чекбокс checked */
 .modal-checkbox:checked + .modal-checkbox-label .modal-checkbox-icon {
   opacity: 1;
 }
-.modal-checkbox-icon {
-  fill: #f4f4fd; /* белая галочка */
-  opacity: 0; /* СКРЫТА */
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.container-footer {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-.footer-left {
-  display: flex;
-  gap: 120px;
-}
-.footer-social {
-  display: flex;
-  flex-direction: column;
-}
 
-.footer-social-title {
-  margin-bottom: 16px;
+@media (min-width: 768px) {
+  .container-team {
+    max-width: 584px;
+  }
+}
+@media (min-width: 1158px) {
+  .container-team {
+    max-width: 1158px;
+  }
 }
