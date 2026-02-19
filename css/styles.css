@@ -1357,10 +1357,7 @@ h1.header-one {
 .modal-submit-btn:focus {
   background-color: #404bbf;
 }
-.modal-input-icon-user {
-  width: 12px;
-  height: 12px;
-}
+
 /* галочка скрыта по умолчанию */
 .modal-checkbox-icon {
   opacity: 0;
